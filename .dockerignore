@@ -1,0 +1,15 @@
+node_modules
+dist
+coverage
+playwright-report
+test-results
+.env
+.env.*
+!.env.example
+.git
+.idea
+*.log
+*.tsbuildinfo
+src/**/*.test.ts
+src/**/*.test.tsx
+e2e

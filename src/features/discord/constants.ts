@@ -1,0 +1,1 @@
+export const DISCORD_MEMBER_COUNT = 10247

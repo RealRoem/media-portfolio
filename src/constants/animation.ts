@@ -1,0 +1,6 @@
+export const COUNTER_DURATION_MS = 1200
+export const COUNTER_FRAME_MS = 16
+export const REVEAL_DURATION_SECONDS = 0.3
+export const REVEAL_DISTANCE_PX = 24
+export const VIEWPORT_ONCE_AMOUNT = 0.24
+export const STAGGER_DELAY_SECONDS = 0.08
