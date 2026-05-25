@@ -1,7 +1,15 @@
 services:
   portfolio:
-    image: roem-portfolio:latest
+    image: ghcr.io/realroem/media-portfolio:latest
     container_name: roem-portfolio
     restart: unless-stopped
     ports:
       - '127.0.0.1:8080:8080'
+
+  watchtower:
+    image: containrrr/watchtower:latest
+    container_name: roem-watchtower
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --cleanup --interval 60 roem-portfolio

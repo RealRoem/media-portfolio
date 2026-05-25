@@ -7,7 +7,7 @@ droplet.
 
 - React app: done
 - Dockerfile: done
-- GitHub Actions quality checks + Docker build check: done
+- GitHub Actions quality checks + Docker image publish: done
 - Docker Compose app runner: done
 - Server Docker install: manual server step
 - Server Nginx + SSL: manual server step
@@ -58,25 +58,24 @@ mkdir -p /opt/roem-portfolio
 cd /opt/roem-portfolio
 ```
 
-Clone and build the app on the server:
-
-```bash
-rm -rf /opt/media-portfolio-src
-git clone https://github.com/RealRoem/media-portfolio.git /opt/media-portfolio-src
-cd /opt/media-portfolio-src
-docker build -t roem-portfolio:latest .
-```
-
 Create `/opt/roem-portfolio/docker-compose.yml` on the server:
 
 ```yaml
 services:
   portfolio:
-    image: roem-portfolio:latest
+    image: ghcr.io/realroem/media-portfolio:latest
     container_name: roem-portfolio
     restart: unless-stopped
     ports:
       - '127.0.0.1:8080:8080'
+
+  watchtower:
+    image: containrrr/watchtower:latest
+    container_name: roem-watchtower
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --cleanup --interval 60 roem-portfolio
 ```
 
 Start the app:
@@ -131,14 +130,19 @@ certbot renew --dry-run
 
 ## Updating The Site
 
-After pushing to `main`, GitHub Actions verifies the app and Docker build. Then SSH into the
-server and run:
+After pushing to `main`, GitHub Actions verifies the app and publishes a new Docker image:
+
+```text
+ghcr.io/realroem/media-portfolio:latest
+```
+
+The server runs Watchtower, which checks for a new image every 60 seconds and restarts the app when
+the image changes.
+
+Manual deploy is still available:
 
 ```bash
-rm -rf /opt/media-portfolio-src
-git clone https://github.com/RealRoem/media-portfolio.git /opt/media-portfolio-src
-cd /opt/media-portfolio-src
-docker build -t roem-portfolio:latest .
 cd /opt/roem-portfolio
+docker compose pull
 docker compose up -d
 ```
