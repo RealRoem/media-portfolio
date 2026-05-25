@@ -1,6 +1,6 @@
 services:
   portfolio:
-    image: ghcr.io/realroem/media-portfolio:latest
+    image: roem-portfolio:latest
     container_name: roem-portfolio
     restart: unless-stopped
     ports:

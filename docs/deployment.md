@@ -7,7 +7,7 @@ droplet.
 
 - React app: done
 - Dockerfile: done
-- GitHub Actions build + Docker image publish: done
+- GitHub Actions quality checks + Docker build check: done
 - Docker Compose app runner: done
 - Server Docker install: manual server step
 - Server Nginx + SSL: manual server step
@@ -58,12 +58,21 @@ mkdir -p /opt/roem-portfolio
 cd /opt/roem-portfolio
 ```
 
-Create `docker-compose.yml` on the server:
+Clone and build the app on the server:
+
+```bash
+rm -rf /opt/media-portfolio-src
+git clone https://github.com/RealRoem/media-portfolio.git /opt/media-portfolio-src
+cd /opt/media-portfolio-src
+docker build -t roem-portfolio:latest .
+```
+
+Create `/opt/roem-portfolio/docker-compose.yml` on the server:
 
 ```yaml
 services:
   portfolio:
-    image: ghcr.io/realroem/media-portfolio:latest
+    image: roem-portfolio:latest
     container_name: roem-portfolio
     restart: unless-stopped
     ports:
@@ -122,16 +131,14 @@ certbot renew --dry-run
 
 ## Updating The Site
 
-After pushing to `main`, GitHub Actions builds and publishes:
-
-```text
-ghcr.io/realroem/media-portfolio:latest
-```
-
-Then SSH into the server and run:
+After pushing to `main`, GitHub Actions verifies the app and Docker build. Then SSH into the
+server and run:
 
 ```bash
+rm -rf /opt/media-portfolio-src
+git clone https://github.com/RealRoem/media-portfolio.git /opt/media-portfolio-src
+cd /opt/media-portfolio-src
+docker build -t roem-portfolio:latest .
 cd /opt/roem-portfolio
-docker compose pull
 docker compose up -d
 ```
