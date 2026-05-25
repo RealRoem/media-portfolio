@@ -6,7 +6,7 @@ test.describe('homepage', (): void => {
 
     await expect(
       page.getByRole('heading', {
-        name: /roblox strategy content sponsors can trust/i,
+        name: /i make roblox videos people use while they play/i,
       })
     ).toBeVisible()
     await expect(page.getByRole('link', { name: 'Contact for sponsorship' })).toBeVisible()
