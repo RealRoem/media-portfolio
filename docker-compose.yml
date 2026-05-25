@@ -10,6 +10,8 @@ services:
     image: containrrr/watchtower:latest
     container_name: roem-watchtower
     restart: unless-stopped
+    environment:
+      DOCKER_API_VERSION: '1.44'
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     command: --cleanup --interval 60 roem-portfolio
