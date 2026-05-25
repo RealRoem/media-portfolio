@@ -6,22 +6,35 @@ const config: Config = {
     extend: {
       colors: {
         obsidian: {
-          950: '#050507',
-          900: '#0b0d12',
-          800: '#121620',
-          700: '#1c2230',
+          950: '#08090d',
+          900: '#0f1218',
+          800: '#171b24',
+          700: '#232936',
         },
-        ember: {
-          300: '#f0b98f',
-          400: '#d9834f',
-          500: '#b95f35',
+        champagne: {
+          100: '#fff3d1',
+          200: '#ffd36f',
+          300: '#ffb000',
+          400: '#d68a00',
+        },
+        youtube: {
+          400: '#ff3355',
+          500: '#ff0033',
+          600: '#cc0029',
+        },
+        steel: {
+          100: '#f6f4ee',
+          200: '#e6e1d6',
+          300: '#c7c0b2',
+          500: '#787f8c',
+          700: '#303846',
         },
         frost: {
-          100: '#f7fbff',
-          300: '#b8c7da',
-          500: '#78879d',
+          100: '#f6f4ee',
+          300: '#c9c3b8',
+          500: '#8d948f',
         },
-        discord: '#5865f2',
+        discord: '#6574d9',
       },
       fontFamily: {
         display: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
@@ -32,12 +45,14 @@ const config: Config = {
         'section-sm': '4rem',
       },
       boxShadow: {
-        glow: '0 18px 48px rgba(240, 185, 143, 0.18)',
-        panel: '0 20px 70px rgba(0, 0, 0, 0.32)',
+        glow: '0 20px 56px rgba(255, 176, 0, 0.24)',
+        redglow: '0 20px 56px rgba(255, 0, 51, 0.22)',
+        panel: '0 24px 80px rgba(0, 0, 0, 0.28)',
+        premium: '0 18px 60px rgba(8, 9, 13, 0.22)',
       },
       backgroundImage: {
         'cinematic-radial':
-          'radial-gradient(circle at 16% 10%, rgba(240, 185, 143, 0.12), transparent 34%), radial-gradient(circle at 86% 16%, rgba(88, 101, 242, 0.1), transparent 30%), linear-gradient(135deg, #050507 0%, #0b0d12 48%, #11151d 100%)',
+          'radial-gradient(circle at 18% 8%, rgba(255, 0, 51, 0.16), transparent 30%), radial-gradient(circle at 82% 12%, rgba(255, 176, 0, 0.18), transparent 32%), linear-gradient(135deg, #08090d 0%, #11151d 48%, #1a1010 100%)',
       },
     },
   },

@@ -1,8 +1,13 @@
 export const SITE_NAME = 'Real_Roem Creator Portfolio'
 export const CREATOR_HANDLE = '@Roem'
 export const CREATOR_NAME = 'Real_Roem'
+export const DEFAULT_SPONSORSHIP_EMAIL = 'sponsor@realroem.com'
 /* v8 ignore next */
-export const SPONSORSHIP_EMAIL = import.meta.env.VITE_SPONSORSHIP_EMAIL ?? 'sponsors@example.com'
+const configuredSponsorshipEmail = import.meta.env.VITE_SPONSORSHIP_EMAIL
+export const SPONSORSHIP_EMAIL =
+  configuredSponsorshipEmail && !configuredSponsorshipEmail.includes('example.com')
+    ? configuredSponsorshipEmail
+    : DEFAULT_SPONSORSHIP_EMAIL
 /* v8 ignore next */
 export const DISCORD_URL = import.meta.env.VITE_DISCORD_URL ?? 'https://discord.gg/roem'
 /* v8 ignore next */

@@ -8,12 +8,14 @@ export const FeaturedVideosSection = memo(
   ({ videos }: FeaturedVideosSectionProps): React.JSX.Element => (
     <Section id={SECTION_IDS.videos} labelledBy="featured-videos-title">
       <Reveal className="max-w-4xl">
-        <p className="text-sm font-medium text-ember-300">Featured videos</p>
+        <p className="text-sm font-medium uppercase tracking-[0.18em] text-champagne-300">
+          Featured videos
+        </p>
         <h2
           className="mt-4 text-4xl font-semibold leading-tight tracking-tight text-frost-100 sm:text-6xl"
           id="featured-videos-title"
         >
-          Three videos that show what I make.
+          3 different video formats
         </h2>
       </Reveal>
       <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">

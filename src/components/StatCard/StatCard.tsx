@@ -10,10 +10,10 @@ export const StatCard = memo(({ stat }: StatCardProps): React.JSX.Element => {
   return (
     <article
       className={cx(
-        'rounded-lg border p-6 backdrop-blur transition duration-300 hover:-translate-y-1',
+        'rounded-lg border p-6 backdrop-blur-xl transition-[border-color,background-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5',
         stat.highlight
-          ? 'border-discord/35 bg-discord/10 shadow-panel'
-          : 'border-white/10 bg-white/[0.035]'
+          ? 'border-discord/30 bg-discord/[0.075] shadow-panel'
+          : 'border-white/10 bg-white/[0.045] hover:border-champagne-200/25 hover:bg-white/[0.065]'
       )}
     >
       <p className="text-sm font-medium text-frost-300">{stat.label}</p>

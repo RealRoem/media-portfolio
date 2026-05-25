@@ -36,4 +36,5 @@ export interface ContactLink {
   readonly label: string
   readonly href: string
   readonly ariaLabel: string
+  readonly brand: 'email' | 'discord' | 'youtube'
 }
