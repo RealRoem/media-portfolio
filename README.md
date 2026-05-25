@@ -1,7 +1,7 @@
 # Real_Roem Creator Portfolio
 
-A dark cinematic sponsor portfolio for [@Roem](https://www.youtube.com/@Roem), built with React,
-TypeScript, Tailwind CSS, Vite, and framer-motion.
+A sponsor portfolio for [@Roem](https://www.youtube.com/@Roem), built with React, TypeScript,
+Tailwind CSS, Vite, and framer-motion.
 
 ## Scripts
 
@@ -11,3 +11,7 @@ TypeScript, Tailwind CSS, Vite, and framer-motion.
 - `npm run format` formats the project with Prettier.
 
 Runtime content is hardcoded in `src/data`, and configurable links live in `.env`.
+
+## Deployment
+
+Production deployment notes live in [docs/deployment.md](docs/deployment.md).
