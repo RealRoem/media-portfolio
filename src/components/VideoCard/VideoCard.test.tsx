@@ -22,10 +22,9 @@ describe('VideoCard', (): void => {
     it('should link to YouTube with descriptive media', (): void => {
       renderWithProviders(<VideoCard video={testVideo} />)
 
-      expect(screen.getByRole('link', { name: /watch sponsor ready video/i })).toHaveAttribute(
-        'href',
-        testVideo.watchUrl
-      )
+      expect(
+        screen.getByRole('link', { name: `Watch ${testVideo.title} on YouTube` })
+      ).toHaveAttribute('href', testVideo.watchUrl)
       expect(screen.getByRole('img', { name: testVideo.thumbnailAlt })).toBeInTheDocument()
     })
 

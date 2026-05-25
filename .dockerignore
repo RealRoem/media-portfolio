@@ -7,8 +7,13 @@ test-results
 .env.*
 !.env.example
 .git
+.github
 .idea
+.husky
+docs
 *.log
+.vite-dev*.log
+.vite-dev*.err.log
 *.tsbuildinfo
 src/**/*.test.ts
 src/**/*.test.tsx

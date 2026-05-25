@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react'
 
+import type { ButtonVariant } from '@/styles/theme'
+
 import type { FeaturedVideo, StatItem } from './creator'
 
 export interface ErrorBoundaryProps {
@@ -18,7 +20,7 @@ export interface ButtonProps {
   readonly children: ReactNode
   readonly href: string
   readonly ariaLabel: string
-  readonly variant?: 'primary' | 'secondary' | 'ghost'
+  readonly variant?: ButtonVariant
   readonly className?: string
 }
 

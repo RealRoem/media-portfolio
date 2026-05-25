@@ -1,11 +1,12 @@
 import { Play } from 'lucide-react'
 import { memo } from 'react'
 
+import { theme } from '@/styles/theme'
 import type { VideoCardProps } from '@/types'
 
 export const VideoCard = memo(
   ({ video }: VideoCardProps): React.JSX.Element => (
-    <article className="group overflow-hidden rounded-lg border border-white/10 bg-white/[0.045] shadow-premium backdrop-blur-xl transition-[border-color,background-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-champagne-200/30 hover:bg-white/[0.065]">
+    <article className={theme.surface.videoCard}>
       <a
         aria-label={`Watch ${video.title} on YouTube`}
         className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-champagne-300"
@@ -31,7 +32,7 @@ export const VideoCard = memo(
           </div>
         </div>
         <div className="p-6">
-          <p className="text-sm font-medium text-champagne-300">{video.theme}</p>
+          <p className={`text-sm font-medium ${theme.icon.accent}`}>{video.theme}</p>
           <h3 className="mt-3 text-xl font-semibold leading-tight text-frost-100 transition-colors duration-300 group-hover:text-champagne-100">
             {video.title}
           </h3>

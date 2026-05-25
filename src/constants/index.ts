@@ -19,3 +19,4 @@ export {
   VIEWPORT_ONCE_AMOUNT,
 } from './animation'
 export { NAVIGATION_OFFSET_CLASS, SECTION_IDS } from './sections'
+export { SPONSORSHIP_CTA_LABEL } from './copy'

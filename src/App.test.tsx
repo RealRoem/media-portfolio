@@ -1,6 +1,7 @@
 import { screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
+import { sponsorshipNavItem } from '@/data'
 import { renderWithProviders } from '@/test/utils'
 
 import { App } from './App'
@@ -11,7 +12,7 @@ describe('App', (): void => {
       renderWithProviders(<App />)
 
       expect(
-        await screen.findAllByRole('link', { name: 'Contact for sponsorship' })
+        await screen.findAllByRole('link', { name: sponsorshipNavItem.label })
       ).not.toHaveLength(0)
     })
   })

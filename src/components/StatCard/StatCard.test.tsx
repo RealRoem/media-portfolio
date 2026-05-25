@@ -7,18 +7,18 @@ import type { StatItem } from '@/types'
 import { StatCard } from './StatCard'
 
 const stat: StatItem = {
-  label: 'Discord members',
+  label: 'Highlighted metric',
   value: 10247,
   suffix: '',
-  description: 'A sponsor-ready community touchpoint.',
+  description: 'Description for highlighted metric.',
   highlight: true,
 }
 
 const standardStat: StatItem = {
-  label: 'YouTube subscribers',
+  label: 'Standard metric',
   value: 35200,
   suffix: '+',
-  description: 'Growing Roblox strategy audience.',
+  description: 'Description for standard metric.',
 }
 
 describe('StatCard', (): void => {
@@ -26,15 +26,15 @@ describe('StatCard', (): void => {
     it('should show the label and sponsor-facing description', (): void => {
       renderWithProviders(<StatCard stat={stat} />)
 
-      expect(screen.getByText('Discord members')).toBeInTheDocument()
-      expect(screen.getByText('A sponsor-ready community touchpoint.')).toBeInTheDocument()
+      expect(screen.getByText(stat.label)).toBeInTheDocument()
+      expect(screen.getByText(stat.description)).toBeInTheDocument()
     })
 
     it('should render standard stats without the highlight treatment', (): void => {
       renderWithProviders(<StatCard stat={standardStat} />)
 
-      expect(screen.getByText('YouTube subscribers')).toBeInTheDocument()
-      expect(screen.getByText('Growing Roblox strategy audience.')).toBeInTheDocument()
+      expect(screen.getByText(standardStat.label)).toBeInTheDocument()
+      expect(screen.getByText(standardStat.description)).toBeInTheDocument()
     })
   })
 })

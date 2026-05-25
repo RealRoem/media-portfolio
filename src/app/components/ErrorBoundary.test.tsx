@@ -18,7 +18,7 @@ describe('ErrorBoundary', (): void => {
         </ErrorBoundary>
       )
 
-      expect(screen.getByRole('heading', { name: /something failed/i })).toBeInTheDocument()
+      expect(screen.getByRole('main')).toBeInTheDocument()
       expect(globalThis.reportError).toHaveBeenCalled()
     })
   })

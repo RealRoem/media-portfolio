@@ -8,9 +8,11 @@ import { Reveal } from './Reveal'
 describe('Reveal', (): void => {
   describe('when content enters the viewport', (): void => {
     it('should render its children', (): void => {
-      renderWithProviders(<Reveal>Premium sponsor story</Reveal>)
+      const childContent = 'Renderable child content'
 
-      expect(screen.getByText('Premium sponsor story')).toBeInTheDocument()
+      renderWithProviders(<Reveal>{childContent}</Reveal>)
+
+      expect(screen.getByText(childContent)).toBeInTheDocument()
     })
   })
 })

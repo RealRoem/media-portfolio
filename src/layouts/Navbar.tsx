@@ -4,6 +4,7 @@ import { memo, useState } from 'react'
 import { Button } from '@/components'
 import { CREATOR_NAME } from '@/constants'
 import { navigationItems, sponsorshipNavItem } from '@/data'
+import { theme } from '@/styles/theme'
 import { cx } from '@/utils'
 
 export const Navbar = memo((): React.JSX.Element => {
@@ -36,7 +37,10 @@ export const Navbar = memo((): React.JSX.Element => {
           aria-controls="mobile-navigation"
           aria-expanded={isOpen}
           aria-label="Toggle navigation menu"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.035] text-frost-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-champagne-300 lg:hidden"
+          className={cx(
+            'inline-flex h-11 w-11 items-center justify-center rounded-full text-frost-100 lg:hidden',
+            theme.button.variants.secondary
+          )}
           onClick={() => {
             setIsOpen((current) => !current)
           }}

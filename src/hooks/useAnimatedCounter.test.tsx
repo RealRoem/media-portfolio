@@ -3,8 +3,10 @@ import { describe, expect, it } from 'vitest'
 
 import { useAnimatedCounter } from './useAnimatedCounter'
 
+const targetValue = 100
+
 const CounterHarness = (): React.JSX.Element => {
-  const { ref, value } = useAnimatedCounter({ target: 100, durationMs: 1 })
+  const { ref, value } = useAnimatedCounter({ target: targetValue, durationMs: 1 })
 
   return <span ref={ref}>{value}</span>
 }
@@ -15,14 +17,16 @@ describe('useAnimatedCounter', (): void => {
       render(<CounterHarness />)
 
       await waitFor((): void => {
-        expect(screen.getByText('100')).toBeInTheDocument()
+        expect(screen.getByText(String(targetValue))).toBeInTheDocument()
       })
     })
   })
 
   describe('when no element is attached yet', (): void => {
     it('should keep the initial value', (): void => {
-      const { result } = renderHook(() => useAnimatedCounter({ target: 100, durationMs: 1 }))
+      const { result } = renderHook(() =>
+        useAnimatedCounter({ target: targetValue, durationMs: 1 })
+      )
 
       expect(result.current.value).toBe(0)
     })

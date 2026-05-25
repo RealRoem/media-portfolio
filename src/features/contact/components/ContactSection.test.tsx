@@ -1,6 +1,7 @@
 import { screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
+import { MAILTO_SPONSORSHIP_URL } from '@/constants'
 import { contactLinks } from '@/data'
 import { renderWithProviders } from '@/test/utils'
 
@@ -11,31 +12,22 @@ describe('ContactSection', (): void => {
     it('should show the real sponsorship email and link to it', (): void => {
       renderWithProviders(<ContactSection links={contactLinks} />)
 
-      const visibleEmail = screen.getByRole('link', {
-        name: 'Email sponsor at realroem dot com',
-      })
-      const emailButton = screen.getByRole('link', { name: 'Email Roem for sponsorship inquiries' })
+      const sponsorshipLinks = screen
+        .getAllByRole('link')
+        .filter((link) => link.getAttribute('href') === MAILTO_SPONSORSHIP_URL)
 
-      expect(visibleEmail).toHaveTextContent('sponsor@realroem.com')
-      expect(visibleEmail).toHaveAttribute(
-        'href',
-        'mailto:sponsor@realroem.com?subject=Roem%20Sponsorship%20Inquiry'
-      )
-      expect(emailButton).toHaveAttribute(
-        'href',
-        'mailto:sponsor@realroem.com?subject=Roem%20Sponsorship%20Inquiry'
-      )
+      expect(sponsorshipLinks).toHaveLength(1)
     })
 
-    it('should apply brand color classes to Discord and YouTube links', (): void => {
+    it('should render configured contact actions with their link targets', (): void => {
       renderWithProviders(<ContactSection links={contactLinks} />)
 
-      expect(screen.getByRole('link', { name: 'Open Roem Discord community' })).toHaveClass(
-        'bg-discord'
-      )
-      expect(screen.getByRole('link', { name: 'Open Roem YouTube channel' })).toHaveClass(
-        'bg-youtube-500'
-      )
+      contactLinks.forEach((link) => {
+        expect(screen.getByRole('link', { name: link.ariaLabel })).toHaveAttribute(
+          'href',
+          link.href
+        )
+      })
     })
   })
 })

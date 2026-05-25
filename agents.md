@@ -22,7 +22,6 @@ src/
 │   ├── hero/
 │   ├── stats/
 │   ├── videos/
-│   ├── discord/
 │   ├── sponsorship/
 │   └── contact/
 ├── hooks/                   # Global custom hooks
@@ -44,10 +43,10 @@ Each feature folder must follow this structure:
 ```
 features/stats/
 ├── components/              # Feature-specific components
-├── hooks/                   # Feature-specific hooks
 ├── types.ts                 # Feature-specific types
-├── constants.ts             # Feature-specific constants
-├── utils.ts                 # Feature-specific utils
+├── constants.ts             # Feature-specific constants, only when needed
+├── hooks/                   # Feature-specific hooks, only when needed
+├── utils.ts                 # Feature-specific utils, only when needed
 └── index.ts                 # Barrel export
 ```
 
@@ -161,6 +160,7 @@ describe('ComponentName', () => {
 - ✅ Accessibility must be tested (axe-core via jest-axe)
 - ❌ No `it.only` or `describe.only` in committed code
 - ❌ No skipped tests without a linked issue comment
+- ✅ E2E tests must never hardcode copy — always import from constants
 
 ---
 

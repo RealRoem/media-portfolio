@@ -20,7 +20,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
       return (
         <main className="grid min-h-screen place-items-center bg-obsidian-950 px-6 text-center text-frost-100">
           <section aria-labelledby="error-title" className="max-w-xl">
-            <p className="text-sm uppercase tracking-[0.36em] text-ember-300">
+            <p className="text-sm uppercase tracking-[0.36em] text-champagne-300">
               Portfolio unavailable
             </p>
             <h1 id="error-title" className="mt-4 text-4xl font-semibold">

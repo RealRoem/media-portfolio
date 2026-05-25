@@ -1,4 +1,4 @@
-import { MAILTO_SPONSORSHIP_URL } from '@/constants'
+import { MAILTO_SPONSORSHIP_URL, SPONSORSHIP_CTA_LABEL } from '@/constants'
 import { SECTION_IDS } from '@/constants/sections'
 import type { NavigationItem } from '@/types'
 
@@ -11,6 +11,6 @@ export const navigationItems: readonly NavigationItem[] = [
 ]
 
 export const sponsorshipNavItem: NavigationItem = {
-  label: 'Contact for sponsorship',
+  label: SPONSORSHIP_CTA_LABEL,
   href: MAILTO_SPONSORSHIP_URL,
 }
